@@ -3,7 +3,11 @@ import Header from "./components/header/Header";
 import { Modal, Button } from "react-bootstrap";
 import { useState } from "react";
 
-const data = {};
+const data = [
+  "Red",
+  "Blue",
+  "Green",
+];
 
 export default function App() {
   const [show, setShow] = useState(false);
@@ -24,7 +28,14 @@ export default function App() {
       <Modal.Header closeButton>
         <Modal.Title>Modal title</Modal.Title>
       </Modal.Header>
-      <Modal.Body>Body</Modal.Body>
+      <Modal.Body>
+        This is some map Function 
+        {
+          data.map((values)=>{
+            return (<p key={values} style={{color: values}}>{values}</p>)
+          })
+        }
+      </Modal.Body>
       <Modal.Footer>
         <Button onClick={handleCloseModal}>Close</Button>
       </Modal.Footer>
